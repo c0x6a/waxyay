@@ -140,6 +140,7 @@ INSTALLED_APPS = (
     'profile',
     'afiliado',
     'historial',
+    'home',
 )
 
 # A sample logging configuration. The only tangible logging
