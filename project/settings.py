@@ -133,10 +133,13 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     
     #apps
-    'profile',
     'ubigeo',
     'base',
     'ciudadano',
+    'carrera',
+    'profile',
+    'afiliado',
+    'historial',
 )
 
 # A sample logging configuration. The only tangible logging

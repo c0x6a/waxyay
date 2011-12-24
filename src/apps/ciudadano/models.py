@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
+GENDER_CHOICES = (
+    (u'M', u'Masculino'),
+    (u'F', u'Femenino'),
+)
+    
 class Citizen(models.Model):
-    GENDER_CHOICES = (
-        (u'M', u'Masculino'),
-        (u'F', u'Femenino'),
-    )
     number_document    = models.CharField('Número de Documento',max_length=8,primary_key=True)
     check_code         = models.CharField('Codigo de verificación',max_length=1, blank = True, null = True)
     number_book        = models.CharField('Número de libro',max_length=6, blank = True, null = True)
@@ -27,6 +28,4 @@ class Citizen(models.Model):
 
     class Meta:        
         verbose_name = "Ciudadano" 
-        verbose_name_plural = "Ciudadanos"   
-
-# Create your models here.
+        verbose_name_plural = "Ciudadanos"
