@@ -7,3 +7,6 @@ Intall steps
 	- mv project/media/ ../
 	- mv project/templates/ ../
 	- mkdir src/apps
+	- mkdir static
+	- bin/waxyay syncdb
+	- bin/waxyay collectstatic
