@@ -136,6 +136,7 @@ INSTALLED_APPS = (
     'profile',
     'ubigeo',
     'base',
+    'ciudadano',
 )
 
 # A sample logging configuration. The only tangible logging
