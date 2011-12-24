@@ -2,7 +2,7 @@
 from django.db import models
 
 class Ubigeo(models.Model):
-    ubigeo = models.CharField('Ubigeo', max_length=8, primary_key = True)
+    ubigeo = models.CharField('Ubigeo', max_length=10, primary_key = True)
     name   = models.CharField('Nombre', max_length=140)
     parent = models.ForeignKey('self', related_name='+', null = True, blank = True)
 
