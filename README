@@ -1,0 +1,9 @@
+-------------
+Intall steps
+-------------
+	- mkdir src
+	- python bootstrap.py -d
+	- bin/buildout -vvv
+	- mv project/media/ ../
+	- mv project/templates/ ../
+	- mkdir src/apps
