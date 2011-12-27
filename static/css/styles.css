@@ -1,5 +1,6 @@
 /* Created by http://freehtml5templates.com */
-
+/*color negro= 080707;
+ * color rojo=FA0808*/
 /* reset */
 * {
 margin: 0;
@@ -13,9 +14,9 @@ display: block;
 
 body {
 line-height: 1;
-background: #f1f1f1 url("images/bg.gif") repeat;
+background: #f1f1f1 url("../images/bg.gif") repeat;
 font-family: Verdana, Arial, Helvetica, sans-serif;
-color: #666;
+color: #080707;
 font-size: 14px;
 line-height: 18px;
 }
@@ -42,7 +43,7 @@ header {
 width: 940px;
 height: 200px;
 margin: 0 auto;
-background: #fff url(../images/headerimg.jpg) no-repeat left top;
+background: #fff url(../images/cabeza.jpg) no-repeat left top;
 }
 
 #main {
@@ -68,11 +69,11 @@ clear: both;
 h1,h2,h3,h4,h5,h6 {
 font-weight: bold;
 clear: both;
-color: #333;
+color: #080707;
 }
 
 a:link, a:visited {
-color:#6DBB0D;
+color:#FA0808;
 }
 
 a:hover, a:active {
@@ -112,7 +113,7 @@ float: left;
 margin-right: 5px;
 padding: 0px 15px;
 text-decoration: none;
-color: #FFF;
+color: #FA0808;
 }
 
 nav .menu a:hover {
@@ -133,10 +134,10 @@ font-size: 40px;
 float: left;
 padding-top: 20px; 
 }
-
+/*Texto bienvenidos a waxyay*/
 header h1 a:link, header h1 a:visited {
 text-decoration: none;
-color: #FFF;
+color: #FA0808;
 }
 
 header h1 a:hover { 
@@ -164,6 +165,11 @@ border: none;
 
 article h2 {
 margin-top: 20px;
+color: #FA0808;
+}
+
+article h4 {
+color: #FA0808;
 }
 
 #content p, ul, ol, hr {
@@ -173,9 +179,9 @@ margin-bottom: 24px;
 #content ul ul, ol ol, ul ol, ol ul {
 margin-bottom: 0;
 }
-
+/*texto q le sigue luego de la flecha q apunta hacia abajo*/
 #content h1, h2, h3, h4, h5, h6 {
-color: #333;
+color: #080707;
 margin: 0 0 20px 0;
 line-height: 1.5em;
 }
@@ -221,11 +227,12 @@ aside li a {
 display: block;
 text-decoration: none;
 }
-
+/*
 aside li a:hover {
 text-decoration: underline;
-}
+}*/
 
+/*foot derecho*/
 #footer-area {
 background: #000;
 color: #FFF;
@@ -240,13 +247,13 @@ margin-right: 20px;
 margin-left: 20px;
 width: 190px;
 }
-
+/*titulo del footer*/
 footer aside h4 {
-color: #FFF;
+color: #FA0808;
 font-size: 16px;
 line-height: 1.5em;
 }
-
+/*el resto del footer*/
 footer a:link, footer a:visited {
 color: #FFF;
 }
@@ -294,7 +301,7 @@ border-left:#f0f0f0 1px solid;
 font-family: Arial, Helvetica, sans-serif;
 text-decoration:none;
 text-transform:uppercase;
-color: #000;
+color: #FA0808;
 background:#cccccc;
 white-space:nowrap;
 -moz-transform: rotate(90.0deg) translate(-40px,0px);
@@ -342,7 +349,7 @@ display:block;
 }
 
 .horizontalaccordion:hover>ul>li:hover>h3 {
-color:#fff;
+color:#FA0808;
 background:#000000;
 background: -moz-linear-gradient( top, #454545, #000000);
 background: -webkit-gradient(linear, left top, left bottom, from(#454545), to(#000000));
