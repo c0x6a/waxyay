@@ -11,3 +11,13 @@ class AffiliateForm(forms.ModelForm):
             'date_birth' : SelectDateWidget(years = [(year) for year in range(1965, datetime.date.today().year)]),
             'ubigeo_now' : UbigeoWidget(),
         }
+
+    class Media:
+        css = {
+            'screen' : ('css/jquery-ui.css',),
+            }
+        js = (
+            "js/jquery.js",
+            "js/jquery-ui.js",
+            "js/ubigeo.js",
+            )
