@@ -25,26 +25,25 @@ class Affiliate(models.Model):
     base            = models.ForeignKey(Base)
     ubigeo_now      = models.ForeignKey(Ubigeo, blank = True, null = True)
     #ubigeo_birth    = models.ForeignKey(Ubigeo, blank = True, null = True)
-    date_birth      = models.DateField('Fecha de nacimiento', blank = True, null = True)
+    #date_birth      = models.DateField('Fecha de nacimiento', blank = True, null = True)
     address         = models.TextField('Dirección', blank = True, null = True)
     address_home    = models.TextField('Dirección actual', blank = True, null = True)
     phone           = models.CharField('Teléfono', max_length = 8, blank = True, null = True)
     cellphone       = models.CharField('Celular', max_length = 12, blank = True, null = True)
     email           = models.EmailField('E-Mail', blank = True, null = True)
-    another_email   = models.EmailField('Otro E-Mail', blank = True, null = True)
-    skype           = models.CharField('Skype', max_length = 30, blank = True, null = True)
-    fax             = models.CharField('Fax', max_length = 10, blank = True, null = True)
+    another_contact = models.TextField('Otro medio de contacto', blank = True, null = True)
     another_study   = models.TextField('Capacitación', blank = True, null = True)
     affidavit       = models.BooleanField('Declaración Jurada', default = True)
     foto            = models.ImageField('Foto', upload_to = 'Foto/', blank = True, null = True)
     kind            = models.IntegerField('Tipo', choices=TIPO, blank = True, null = True)
     state           = models.IntegerField('Estado', choices=ESTADO, blank = True, null = True)
     date_record     = models.DateField('Fecha de registro', auto_now_add=True, editable = False, default = datetime.today())
-    date_enrollment = models.DateField('Fecha de afiliación', auto_now_add=True, editable = False)
+    date_enrollment = models.DateField('Fecha de afiliación')
 
     class Meta:
         verbose_name = 'Afiliado'
         verbose_name_plural = 'Afiliados'
 
-    #def __unicode__(self):
-    #    return u'%s; %s' % (self)
+    def __unicode__(self):
+        return u'%s $s; %s' % (self.paternal_surname, self.mother_surname, self.name)
+     

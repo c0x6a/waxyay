@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from afiliado.models import Affiliate
+from compatriota.models import Affiliate
 
 class Record(models.Model):
     affiliate = models.ForeignKey(Affiliate)

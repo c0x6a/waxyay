@@ -10,6 +10,7 @@ class AffiliateForm(forms.ModelForm):
         widgets = {
             'date_birth' : SelectDateWidget(years = [(year) for year in range(1965, datetime.date.today().year)]),
             'ubigeo_now' : UbigeoWidget(),
+            'date_enrollment' : SelectDateWidget(),
         }
 
     class Media:

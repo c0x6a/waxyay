@@ -2,7 +2,7 @@
 from django.db import models
 
 class Education(models.Model):
-    education = models.CharField('Grado de Instrucción', max_length = 140)
+    education = models.CharField('Grado de Instrucción', max_length = 140, unique = True)
 
     class Meta:
         verbose_name = 'Grado de Instrucción'
@@ -12,7 +12,7 @@ class Education(models.Model):
         return u'%s' % self.education
 
 class Occupation(models.Model):
-    occupation = models.CharField('Ocupación', max_length = 140)
+    occupation = models.CharField('Ocupación', max_length = 140, unique = True)
 
     class Meta:
         verbose_name = 'Ocupación'
@@ -22,7 +22,7 @@ class Occupation(models.Model):
         return u'%s' % self.occupation
 
 class Profession(models.Model):
-    profession = models.CharField('Profesión', max_length = 140)
+    profession = models.CharField('Profesión', max_length = 140, unique = True)
 
     class Meta:
         verbose_name = 'Profesión'
