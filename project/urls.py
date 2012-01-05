@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     (r'^grappelli/', include('grappelli.urls')),
     (r'^compatriota/', include('compatriota.urls')),
     (r'^ubigeo/', include('ubigeo.urls')),
+    (r'^base/', include('base.urls')),
     #(r'^$', include('home.urls')),
     (r'^$', 'home.views.index'),
 )

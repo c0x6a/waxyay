@@ -23,7 +23,7 @@ class Affiliate(models.Model):
     occupation      = models.ForeignKey(Occupation, blank = True, null = True)
     profession      = models.ForeignKey(Profession, blank = True, null = True)
     base            = models.ForeignKey(Base)
-    ubigeo_now      = models.ForeignKey(Ubigeo, blank = True, null = True)
+    ubigeo          = models.ForeignKey(Ubigeo, blank = True, null = True)
     #ubigeo_birth    = models.ForeignKey(Ubigeo, blank = True, null = True)
     #date_birth      = models.DateField('Fecha de nacimiento', blank = True, null = True)
     address         = models.TextField('Dirección', blank = True, null = True)

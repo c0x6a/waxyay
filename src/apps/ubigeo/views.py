@@ -6,6 +6,13 @@ from django.http import HttpResponse
 
 json_serializer = serializers.get_serializer("json")()
 
+def validate_ubigeo(value):
+    print 'validando'
+    print value
+    obj, created = Ubigeo.objects.get_or_create(ubigeo = value)
+    if created:
+        raise ValidationError(u'%s no es valido' % value)
+
 def provincia(request):
     provincias = Ubigeo.objects.filter(parent = Ubigeo.objects.get(ubigeo = request.GET['r'])).order_by('name')
     resultado = json_serializer.serialize(provincias, ensure_ascii=False)
