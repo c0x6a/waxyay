@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from base.models import Base
 from forms import BaseForm
 from ciudadano.forms import CitizenForm

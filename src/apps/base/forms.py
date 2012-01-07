@@ -9,7 +9,7 @@ import datetime
 
 class BaseForm(forms.ModelForm):
     
-    ubigeo = UbigeoField(validators=[validate_ubigeo])
+    ubigeo = UbigeoField()
     
     def __init__(self, *args, **kwargs):
         super(BaseForm, self).__init__(*args, **kwargs)
@@ -17,9 +17,6 @@ class BaseForm(forms.ModelForm):
             regiones   = Ubigeo.objects.filter(parent__isnull=True).order_by('name')
             provincias = Ubigeo.objects.filter(parent=self.data['ubigeo_0']).order_by('name')
             distritos  = Ubigeo.objects.filter(parent=self.data['ubigeo_1']).order_by('name')
-            print regiones
-            print provincias
-            print distritos
             self.fields['ubigeo'].fields[0].queryset = regiones
             self.fields['ubigeo'].fields[1].queryset = provincias
             self.fields['ubigeo'].fields[2].queryset = distritos
