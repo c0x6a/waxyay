@@ -1,24 +1,32 @@
 from django import forms
 from models import Affiliate
+from django.forms.widgets import RadioSelect, HiddenInput
 from django.forms.extras.widgets import SelectDateWidget
-from ubigeo.widgets import UbigeoWidget
-import datetime
+from ubigeo.fields import UbigeoField
 
 class AffiliateForm(forms.ModelForm):
+
+    ubigeo = UbigeoField()
+
+    def __init__(self, *args, **kwargs):
+        super(AffiliateForm, self).__init__(*args, **kwargs)
+        if self.data:
+            regiones   = Ubigeo.objects.filter(parent__isnull=True).order_by('name')
+            provincias = Ubigeo.objects.filter(parent=self.data['ubigeo_0']).order_by('name')
+            distritos  = Ubigeo.objects.filter(parent=self.data['ubigeo_1']).order_by('name')
+            self.fields['ubigeo'].fields[0].queryset = regiones
+            self.fields['ubigeo'].fields[1].queryset = provincias
+            self.fields['ubigeo'].fields[2].queryset = distritos
+
     class Meta:
         model = Affiliate
         widgets = {
-            'date_birth' : SelectDateWidget(years = [(year) for year in range(1965, datetime.date.today().year)]),
-            #'ubigeo_now' : UbigeoWidget(),
             'date_enrollment' : SelectDateWidget(),
+            'base' : HiddenInput(),
         }
 
     class Media:
-        css = {
-            'screen' : ('css/jquery-ui.css',),
-            }
         js = (
-            "js/jquery.js",
-            "js/jquery-ui.js",
             "js/ubigeo.js",
+            "js/compatriota.js",
             )

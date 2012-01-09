@@ -4,7 +4,7 @@ from models import Base
 from forms import BaseForm
 
 class BaseAdmin(admin.ModelAdmin):
-    #list_display   = ('profile','title','date_posted','only_users')
+    list_display   = ('name','foundation','ubigeo','active')
     #list_filter    = ['profile','date_posted','only_users','authorize']
     #search_fields  = ['title','content']
     list_per_page = 25

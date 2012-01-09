@@ -4,19 +4,18 @@
 <head>
 	<meta charset="utf-8" />
 	{% block css %}
-		<link rel="stylesheet" href="{{ STATIC_URL  }}css/print.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="{{ STATIC_URL  }}css/print.css" type="text/css" media="print" />
 		<link rel="stylesheet" href="{{ STATIC_URL  }}css/styles.css" type="text/css" media="screen" />
-		
+		<link rel="stylesheet" href="{{ STATIC_URL  }}css/jquery-ui.css" type="text/css" media="screen" />
+		<script src='{{ STATIC_URL }}js/jquery.js'></script>
+		<script src='{{ STATIC_URL }}js/jquery-ui.js'></script>
 		{% if not auth.is_authenticated %}
 		<!--<link rel="stylesheet" href="{{ STATIC_URL  }}css/login.css" type="text/css" media="screen" /> -->
 		{% endif %}
         <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-        {% endblock %}
-        <!--<link rel="shortcut icon" href="{{ STATIC_URL  }}images/favicon.ico" type="image/x-icon">-->
-		<title>{% block title %}Waxyay:::Inicio{% endblock %}</title>
-		<link href="{{ STATIC_URL  }}images/co.ico" rel="shortcut icon" />
-
-	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]LeoAki-->
+    {% endblock %}
+	<!--<link rel="shortcut icon" href="{{ STATIC_URL  }}images/favicon.ico" type="image/x-icon">-->
+	<title>{% block title %}Waxyay:::Inicio{% endblock %}</title>
 </head>
 <body>
 <div id="wrapper"><!-- #wrapper -->
@@ -57,9 +56,6 @@
 </div><!-- #wrapper -->
 <!-- Free template created by http://freehtml5templates.com -->
 </body>
-	{% block js %}
-		<script src='{{ STATIC_URL }}js/jquery.js'></script>
-    {% endblock %}
-    {% block script %}
+    {% block js %}
     {% endblock %}
 </html>

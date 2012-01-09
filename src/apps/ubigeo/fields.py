@@ -3,7 +3,6 @@ from django.forms import ModelChoiceField
 from django.core.exceptions import ValidationError
 from widgets import UbigeoWidget
 from models import Ubigeo
-from ubigeo.views import validate_ubigeo
 
 class UbigeoField(forms.MultiValueField):
     

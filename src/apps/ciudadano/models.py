@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
-GENDER_CHOICES = (
-    (u'M', u'Masculino'),
-    (u'F', u'Femenino'),
-)
-    
+class Education(models.Model):
+    education = models.CharField('Grado de Instrucción', max_length = 140)
+
+    class Meta:
+        verbose_name = 'Grado de Instrucción'
+        verbose_name_plural = 'Grado de Instrucción'
+
+    def __unicode__(self):
+        return u'%s' % self.education
+
 class Citizen(models.Model):
     number_document    = models.CharField('Número de Documento',max_length=8,primary_key=True)
     check_code         = models.CharField('Codigo de verificación',max_length=1, blank = True, null = True)
@@ -17,8 +22,8 @@ class Citizen(models.Model):
     mother_surname     = models.CharField('Apellido materno',max_length=406, blank = True, null = True)
     name               = models.CharField('Nombres',max_length=35, blank = True, null = True)
     birth_date         = models.DateField('Fecha de Nacimiento')
-    sex                = models.CharField('Sexo',max_length=1, choices=GENDER_CHOICES)
-    degree_instruction = models.CharField('Grado de Instrucción',max_length=20, blank = True, null = True)
+    sex                = models.CharField('Sexo',max_length=1)
+    degree_instruction = models.ForeignKey(Education, verbose_name='Educación')
     restriction        = models.CharField('Restricción',max_length=1, blank = True, null = True)
     document_kind      = models.CharField('Tipo de Documento',max_length=1, blank = True, null = True)
     disability         = models.IntegerField('Discapacidad', blank=True, null=True)

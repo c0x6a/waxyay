@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from ubigeo.models import Ubigeo
-from ubigeo.views import validate_ubigeo
 
 class Base(models.Model):
     ubigeo         = models.ForeignKey(Ubigeo)

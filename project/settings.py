@@ -136,9 +136,9 @@ INSTALLED_APPS = (
     'ubigeo',
     'base',
     'ciudadano',
-    'carrera',
-    'profile',
+    #'carrera',
     'compatriota',
+    'profile',
     'historial',
     'home',
 )

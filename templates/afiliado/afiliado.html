@@ -1,60 +1,95 @@
-{{ affiliateform.media }}
-<label>D.N.I.</label>
-{{ citizenform.number_document }}
+{% extends 'base.html' %}
+{% block content %}
+<div>
+	<input type='hidden' id='id_citizen' name='citizen'>
+	<label>D.N.I.</label>
+	{{ citizenform.number_document }}
+</div>
+<div>
 <label>Grupo de votación</label>
 {{ citizenform.number_book }}
-<label>Codigo región</label>
-{{ citizenform.region_code }}
-<label>Codigo provincia</label>
-{{ citizenform.province_code }}
-<label>Codigo distrito</label>
-{{ citizenform.district_code }}
-<label>Apellido paterno</label>
+</div>
+<div>
+	<label>Ubigeo</label>
+{{ affiliateform.ubigeo }}
+</div>
+<div>
+	<label>Apellido paterno</label>
 {{ citizenform.paternal_surname }}
+</div>
+<div>
 <label>Apellido Materno</label>
 {{ citizenform.mother_surname }}
+</div>
+<div>
 <label>Nombre</label>
 {{ citizenform.name }}
+</div>
+<div>
 <label>fecha de nacimiento</label>
 {{ citizenform.birth_date }}
-<label>Sexo</label>
+</div>
+<div>
+	<label>Sexo</label>
 {{ citizenform.sex }}
+</div>
+<div>
 <label>grado de instrucción</label>
 {{ citizenform.degree_instruction }}
-
-<label>grado de instrucción</label>
-{{ affiliateform.education }}
-<label>ocupación</label>
-{{ affiliateform.occupation }}
-<label>profesión</label>
-{{ affiliateform.profession }}
-<label>base</label>
+</div>
+<div>
+	<label>base</label>
 {{ affiliateform.base }}
-<label>ubigeo</label>
-{{ affiliateform.ubigeo_now }}
+<input type='text' name='txt_base' id='txt_base'>
+<button type='button' name='bt_base' id='bt_base'>
+	<span class="ui-button-text">Buscar</span>
+</button>
+</div>
+<div>
 <label>dirección</label>
 {{ affiliateform.address }}
+</div>
+<div>
 <label>dirección actual</label>
 {{ affiliateform.address_home }}
+</div>
+<div>
 <label>teléfono</label>
 {{ affiliateform.phone }}
+</div>
+<div>
 <label>celular</label>
 {{ affiliateform.cellphone }}
+</div>
+<div>
 <label>email</label>
 {{ affiliateform.email }}
-<label>otro medio de contacto</label>
-{{ affiliateform.another_contact }}
-<label>otros estudios</label>
-{{ affiliateform.another_study }}
-<label>grado de instrucción</label>
-{{ affiliateform.another_study }}
+</div>
+<div>
 <label>declaración jurada</label>
 {{ affiliateform.affidavit }}
-<label>foto</label>
+</div>
+<div>
+	<label>foto</label>
 {{ affiliateform.foto }}
+</div>
+<div>
 <label>tipo</label>
 {{ affiliateform.kind }}
-<label>estado</label>
+</div>
+<div>
+	<label>estado</label>
 {{ affiliateform.state }}
-<label>fecha de afiliación</label>
+</div>
+<div>
+	<label>fecha de afiliación</label>
 {{ affiliateform.date_enrollment }}
+</div>
+<div id='dialog-base' title='Base'>
+	<iframe src='/base/compatriota/' width='450' height='850' frameborder=0 scrolling=no></iframe>
+</div>
+{% endblock %}
+{% block js %}
+{{ affiliateform.media }}
+{{ citizenform.media }}
+{% endblock %}

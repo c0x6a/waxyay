@@ -264,7 +264,7 @@ margin-top: -15px;
 
 /** ACCORDION */
 .accordbk {
-background: #fff url(images/accordinfo.gif) bottom right no-repeat;
+background: #fff url(../images/accordinfo.gif) bottom right no-repeat;
 }
 
 .horizontalaccordion>ul {

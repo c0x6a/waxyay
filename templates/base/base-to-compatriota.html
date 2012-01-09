@@ -1,0 +1,17 @@
+{% load static %}
+<script src="{{ STATIC_URL }}js/jquery.js"></script>
+<script src="{{ STATIC_URL }}js/jquery-ui.js"></script>
+<script>
+	$(document).ready(function() {
+		opener = window.parent;
+		//alert(opener.document.getElementById('id_base'));
+		opener.document.getElementById('id_base').value="{{ base.pk }}";
+		opener.document.getElementById('txt_base').value = "{{ base.name }}";
+		$(opener.document.getElementById('dialog-form')).dialog( "close" );
+		//$( "#" ).dialog( "open" );
+		//window.close();
+		//alert(opener);
+		//open  = opener.parent;
+		//alert(open)
+		});
+</script>

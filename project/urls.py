@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     (r'^compatriota/', include('compatriota.urls')),
     (r'^ubigeo/', include('ubigeo.urls')),
     (r'^base/', include('base.urls')),
+    (r'^ciudadano/', include('ciudadano.urls')),
     #(r'^$', include('home.urls')),
     (r'^$', 'home.views.index'),
 )

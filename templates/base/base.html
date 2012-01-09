@@ -1,0 +1,29 @@
+{{ baseform.media }}
+<form action='/base/registrar/' method='POST'>
+	{% csrf_token %}
+	<p>
+		{{ baseform.ubigeo.errors }}
+		{{ baseform.ubigeo }}
+	</p>
+	<p>
+		{{ baseform.name.errors }}
+		{{ baseform.name }}
+	</p>
+	<p>
+		{{ baseform.address.errors }}
+		{{ baseform.address }}
+	</p>
+	<p>
+		{{ baseform.foundation.errors }}
+		{{ baseform.foundation }}
+	</p>
+	<p>
+		{{ baseform.observation.errors }}
+		{{ baseform.observation }}
+	</p>
+	<p>
+		{{ baseform.active.errors }}
+		{{ baseform.active }}
+	</p>
+	<input type='submit'>
+</form>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es/PE">
+{% load static %}
+<head>
+	<meta charset="utf-8" />
+	<!--<link rel="stylesheet" href="{{ STATIC_URL  }}css/styles.css" type="text/css" media="screen" />-->
+	<link rel="stylesheet" href="{{ STATIC_URL  }}css/jquery-ui.css" type="text/css" media="screen" />
+	{{ baseform.media }}
+	<script src='{{ STATIC_URL }}js/jquery-ui.js'></script>
+	<script>
+		var u_r;
+		var u_s;
+		var d_u;
+		$(document).ready(function(){
+			u_r = $("#ubigeo_register");
+			u_s = $("#ubigeo_search");
+			d_u = $("#p_ubigeo");
+			$("#dialog-form").dialog({
+					autoOpen: false,
+					height: 450,
+					width: 400,
+					modal: true,
+					buttons: {
+						"Crear Base": function() {
+								$("#registrar").submit();
+								$( this ).dialog( "close" );
+							},
+						Cancel: function() {
+							$( this ).dialog( "close" );
+						}
+					},
+					close: function() {
+						u_s.append(d_u);
+					},
+					open: function() {
+						u_r.append(d_u);
+					}
+				});
+			$("#create-base").button({
+					icons: {
+						primary: "ui-icon-circle-plus"
+					},
+					text: false
+				})
+				.click(function() {
+					$( "#dialog-form" ).dialog( "open" );
+				});
+			$("#bt_buscar").button({
+					icons: {
+						primary: "ui-icon-search"
+					},
+					text: false
+				});
+			});
+	</script>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+	<form action='/base/compatriota/' method='POST'>
+		{% csrf_token %}
+		<ul>
+			<li>Base</li>
+			<li><input name='base_name'></li>
+			<li>Ubigeo</li>
+			<li id='ubigeo_search'>
+				<div id='p_ubigeo'>
+					{{ baseform.ubigeo }}
+				</div>
+			</li>
+		</ul>
+		<button id='bt_buscar' type='submit'>Buscar</button>
+		<button id='create-base' type='button'>Crear</button>
+	</form>
+
+	<div class='ui-widget'><!-- #wrapper -->
+		<table id='tb_bases' class="ui-widget ui-widget-content">
+			<thead>
+				<tr class="ui-widget-header">
+					<th>&nbsp;</th>
+					<th>Base</th>
+					<th>Fundación</th>
+					<th>Ubigeo</th>
+					<th>Activo</th>
+				</tr>
+			</thead>
+			{% if bases %}
+			    {% for base in bases %}
+			    <tr>
+					<td><input name='select' type='radio'/></td>
+					<td>{{ base.name }}</td>
+					<td>{{ base.foundation }}</td>
+					<td>{{ base.ubigeo.name }}</td>
+					<td>{{ base.active }}</td>
+			    </tr>
+			    {% endfor %}
+			{% endif %}
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<div id='dialog-form' title='Registrar base'>
+		<form id='registrar' action='/base/add/' method='POST'>
+			{% csrf_token %}
+			<ul>
+				<li>Base</li>
+				<li>
+					{{ baseform.name.errors }}
+					{{ baseform.name }}
+				</li>
+				<li>Ubigeo</li>
+				<li id='ubigeo_register'>
+					{{ baseform.ubigeo.errors }}
+
+				</li>
+				<li>Dirección</li>
+				<li>
+					{{ baseform.address.errors }}
+					{{ baseform.address }}
+				</li>
+				<li>Fundación</li>
+				<li>
+					{{ baseform.foundation.errors }}
+					{{ baseform.foundation }}
+				</li>
+				<li>Observación</li>
+				<li>
+					{{ baseform.observation.errors }}
+					{{ baseform.observation }}
+				</li>
+				<li>Activo</li>
+				<li>
+					{{ baseform.active.errors }}
+					{{ baseform.active }}
+				</li>
+			</ul>
+		</form>
+	</div>
+</body>
+</html>

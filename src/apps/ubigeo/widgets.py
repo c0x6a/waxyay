@@ -7,10 +7,10 @@ class UbigeoWidget(MultiWidget):
     def __init__(self, regiones, provincias, distritos):
         widgets = (
             Select(
-                choices = regiones, attrs = {'onchange' : 'getProvincias(this.value);'}
+                choices = regiones, attrs = {'onchange' : 'getProvincias(this.value, null, null);'}
             ),
             Select(
-                choices = provincias, attrs = {'onchange' : 'getDistritos(this.value);'}
+                choices = provincias, attrs = {'onchange' : 'getDistritos(this.value, null);'}
             ),
             Select(
                 choices = distritos
