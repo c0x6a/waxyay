@@ -43,7 +43,6 @@ def registrar_add(request):
     baseform = BaseForm(request.POST)
     if baseform.is_valid():
         baseform.save()
-    print baseform.instance.pk
     return render(request,
         'base/base-to-compatriota.html',
         {'base' : baseform.instance,})

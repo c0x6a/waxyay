@@ -1,3 +1,4 @@
+{% load pagination_tags %}
 <!doctype html>
 <html lang="es/PE">
 {% load static %}
@@ -45,6 +46,22 @@
 				.click(function() {
 					$( "#dialog-form" ).dialog( "open" );
 				});
+			$("#select-base").button({
+					icons: {
+						primary: "ui-icon-circle-check"
+					},
+					text: false
+				})
+				.click(function() {
+					opener = window.parent;
+					$.each($("#tb_bases").find("tbody tr"), function(){
+						if(this.cells[0].childNodes.item(0).checked){
+								opener.document.getElementById('id_base').value = this.cells[0].childNodes.item(0).value;
+								opener.document.getElementById('txt_base').value = this.cells[1].childNodes.item(0).data.toString();
+							}
+					});
+					opener.window.closeDialog();
+				});
 			$("#bt_buscar").button({
 					icons: {
 						primary: "ui-icon-search"
@@ -70,8 +87,11 @@
 		</ul>
 		<button id='bt_buscar' type='submit'>Buscar</button>
 		<button id='create-base' type='button'>Crear</button>
+		{% if bases %}
+		{% autopaginate bases 30 %}
+		<button id='select-base' type='button'>Seleccionar</button>
+		{% endif %}
 	</form>
-
 	<div class='ui-widget'><!-- #wrapper -->
 		<table id='tb_bases' class="ui-widget ui-widget-content">
 			<thead>
@@ -83,10 +103,11 @@
 					<th>Activo</th>
 				</tr>
 			</thead>
+			<tbody>
 			{% if bases %}
 			    {% for base in bases %}
 			    <tr>
-					<td><input name='select' type='radio'/></td>
+					<td><input name='select' type='radio' value='{{ base.pk }}'/></td>
 					<td>{{ base.name }}</td>
 					<td>{{ base.foundation }}</td>
 					<td>{{ base.ubigeo.name }}</td>
@@ -94,9 +115,9 @@
 			    </tr>
 			    {% endfor %}
 			{% endif %}
-			<tbody>
 			</tbody>
 		</table>
+		{% paginate %}
 	</div>
 	<div id='dialog-form' title='Registrar base'>
 		<form id='registrar' action='/base/add/' method='POST'>

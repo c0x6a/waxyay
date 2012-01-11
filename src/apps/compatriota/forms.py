@@ -3,6 +3,7 @@ from models import Affiliate
 from django.forms.widgets import RadioSelect, HiddenInput
 from django.forms.extras.widgets import SelectDateWidget
 from ubigeo.fields import UbigeoField
+from ubigeo.models import Ubigeo
 
 class AffiliateForm(forms.ModelForm):
 

@@ -7,6 +7,7 @@ $(function() {
 	})
 	.css('height', 25)
 	.click(function(){
+		$("#base_select").attr('src','/base/compatriota/')
 		$("#dialog-base").dialog( "open" );
 		});
 	$("#dialog-base").dialog({
@@ -15,3 +16,8 @@ $(function() {
 						width: 500,
 						modal: true});
 });
+
+function closeDialog(){
+	$("#dialog-base").dialog( "close" );
+	$("#bt_base").attr('enabled',false)
+}

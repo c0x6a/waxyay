@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.utils.encoding import force_unicode
 from datetime import datetime
 from ubigeo.models import Ubigeo
 from base.models import Base
@@ -37,6 +38,6 @@ class Affiliate(models.Model):
         verbose_name = 'Afiliado'
         verbose_name_plural = 'Afiliados'
 
-    def __unicode__(self):
-        return u'%s $s; %s' % (self.paternal_surname, self.mother_surname, self.name)
+    #def __str__(self):
+    #    return u'%s %s; %s' % (force_unicode(self.citizen.paternal_surname, encoding='utf-8', strings_only=False, errors='strict'), force_unicode(self.citizen.mother_surname, encoding='utf-8', strings_only=False, errors='strict'),force_unicode(self.citizen.name, encoding='utf-8', strings_only=False, errors='strict'))
      
