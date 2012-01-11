@@ -9,7 +9,6 @@ class Base(models.Model):
     foundation     = models.DateField('Fundado')
     observation    = models.TextField('Observación', blank = True, null = True)
     active         = models.BooleanField('Activo', blank = True, default = True)
-    #contact_number = models.CharField('Teléfono del contacto', max_length = 10)
 
     class Meta:
         verbose_name = 'Base'

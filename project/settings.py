@@ -123,7 +123,7 @@ INSTALLED_APPS = (
     
     #apps
     'grappelli',
-    #'filebrowser',
+    'filebrowser',
     'south',
     #'tinymce',
     'linaro_django_pagination',
