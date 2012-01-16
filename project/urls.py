@@ -1,6 +1,6 @@
-
 from django.conf.urls.defaults import *
 from django.conf import settings
+from filebrowser.sites import site
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     (r'^ubigeo/', include('ubigeo.urls')),
     (r'^base/', include('base.urls')),
     (r'^ciudadano/', include('ciudadano.urls')),
+    (r'^profile/', include('profile.urls')),
     #(r'^$', include('home.urls')),
     (r'^$', 'home.views.index'),
 )

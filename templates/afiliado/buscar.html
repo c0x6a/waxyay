@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method='POST' action='/compatriota/buscar/' enctype="multipart/form-data">
+	{% csrf_token %} 
+	<div>
+		<ul>
+			<li>
+				<label>DNI</label>
+				<input name='dni' type='text'/>
+			</li>
+			<li>
+				<label>Nombre</label>
+				<input name='nombre' type='text'/>
+			</li>
+			<li>
+				<label>Apellido</label>
+				<input name='apellido' type='text'/>
+			</li>
+			<li>
+				<label>Ubicación</label>
+				{{ ubigeo.ubigeo }}
+			</li>
+			<li>
+				<label>Profesión</label>
+				<input name='profesion' type='text'/>
+			</li>
+			<li>
+				<label>Edad</label>
+				<select name='inicio'></select>
+				<select name='fin'></select>
+			</li>
+			<li>
+				<label>Tipo</label>
+				<select name='tipo'></select>
+			</li>
+			<li>
+				<label>Estado</label>
+				<select name='estado'></select>
+			</li>
+			<li>
+				<label>Base</label>
+				<input name='base' type='text'/>
+				<input name='id_base' type='hidden'/>
+			</li>
+		</ul>
+	</div>
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>DNI</th>
+					<th>Apellido</th>
+					<th>Nombre</th>
+					<th>Profesión</th>
+					<th>Fecha de afiliación</th>
+					<th>Tipo</th>
+					<th>Estado</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+</form>
+{% endblock %}
+{% block js %}
+	{{ affiliateform.media }}
+	{{ citizenform.media }}
+	{{ ubigeo.media }}
+	<script>
+		$(document).ready(function(){
+			$('form input[type=text]').attr('class','field text');
+			//$('form input[type=checkbox]').attr('class','field checkbox');
+			//$('form input[type=radio]').attr('class','field radio');
+			//$('form textarea').attr('class','field textarea medium');
+			});
+	</script>
+{% endblock %}

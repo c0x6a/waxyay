@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     
     #apps
+    'grappelli.dashboard',
     'grappelli',
     'filebrowser',
     'south',

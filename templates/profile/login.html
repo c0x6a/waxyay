@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+	<article >
+		<center><h2>Bienvenidos a Waxyay</h2></center>
+		<h3>El Sistema Integrado de información del Partido Nacionalista Peruano</h3>
+		<ul>
+		<li>
+			<div="loginBox" >
+				<h2>Login</h2>
+				<form id="loginForm" method='POST' action='/profile/access/'>
+					{% csrf_token %}
+					<fieldset id="body" color="red">
+						<h4>Usuario</h4>
+						<input type="text" class='required' name="usuario" id="usuario" />
+						<h4>Password</h4>
+						<input type="password" class='required' name="password" id="password" />
+						<input type="submit" id="login" value="Ingresar" />
+					</fieldset>
+				</form>
+			</div>
+		</li>
+		</ul>
+	</article>
+</section>
+{% endblock %}

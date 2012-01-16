@@ -22,7 +22,7 @@ class CitizenForm(forms.ModelForm):
         widgets = {
             'birth_date' : SelectDateWidget(years = [(year) for year in range(1935, datetime.date.today().year)]),
             'sex' : RadioSelect(choices = GENDER_CHOICES, renderer=HorizRadioRenderer),
-            'number_document' : TextInput(attrs = {'onKeyPress':'if(event.keyCode==13) {getCiudadano(this.value);}return false;'}),
+            'number_document' : TextInput(attrs = {'onKeyPress':'if(event.keyCode==13) {getCiudadano(this.value);return false;}'}),
         }
 
     class Media:

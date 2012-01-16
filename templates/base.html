@@ -14,42 +14,55 @@
 		{% endif %}
         <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     {% endblock %}
+    {% block template %}
+    {% endblock %}
 	<!--<link rel="shortcut icon" href="{{ STATIC_URL  }}images/favicon.ico" type="image/x-icon">-->
 	<title>{% block title %}Waxyay:::Inicio{% endblock %}</title>
 </head>
 <body>
 <div id="wrapper"><!-- #wrapper -->
 	
-	<nav><!-- top nav -->
-		<div class="menu">
-			<ul>
-				<li><a href="">Archivo</a></li>
-				<li><a href="">Consultar</a></li>
-				<li><a href="">Registrar</a></li>
-				<li><a href="">Mantenimiento</a></li>
-				<li><a href="">Soporte</a></li>
-			</ul>
-		</div>
-	</nav><!-- end of top nav -->
-	
 	<header><!-- header -->
-
+		<h1 class="logo">
+			<a title="Partido Nacionalista Peruano" href="/">
+		</h1>
 	</header><!-- end of header -->
+	
+	<nav><!-- top nav -->
+		<!--<div class="menu">-->
+			<ul id="menu">
+				<li><a href="/">Inicio</a></li>
+				{% if auth.is_authenticated %}
+					<li>
+						<a href="#">Consultar</a>
+						<ul>
+							<li><a href="/compatriota/buscar/">Compatriota</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Registrar</a>
+						<ul>
+							<li><a href="/compatriota/afiliar/">Compatriota</a></li>
+						</ul>
+					</li>
+					<li><a href="/admin/">Mantenimiento</a></li>
+				{% endif %}
+				<li><a href="#">Soporte</a></li>
+			</ul>
+		<!--</div>-->
+	</nav><!-- end of top nav -->
 	
 	<section id="main"><!-- #main content area -->
 			<section id="content"><!-- #content -->
 			{% block content %}
 			{% endblock %}
-						
 			</section><!-- end of #content -->
 
 	</section><!-- end of #main content -->
 	
 		<footer>
 		<section id="footer-area">
-
-			<center><a>GANA PERU CON OLLANTA</a></center>
-					
+			<center><a>Partido Nacionalista Peruano</a></center>
 		</section><!-- end of footer-area -->
 	</footer>
 	

@@ -18,6 +18,7 @@ function getCiudadano(dni){
 			else
 				$("#id_sex_1");
 			$("#id_degree_instruction").val(value.fields.degree_instruction);
+			$("#pre_foto").attr("src","http://www.infogob.com.pe/fotos/"+value.pk.substring(0, 2)+"/"+value.pk.substring(2, 4)+"/"+value.pk.substring(4, 6)+"/"+value.pk+".jpg");
 			});
 		});
 }

@@ -1,99 +1,157 @@
 {% extends 'base.html' %}
+{% block title %}Waxyay:::Afiliar{% endblock %}
+{% block template %}
+	<link rel="stylesheet" href="{{ STATIC_URL  }}css/form.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ STATIC_URL  }}css/structure.css" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
-<form method='POST' action='/compatriota/afiliar/'>
-	{% csrf_token %} 
-	<div>
+<div id="container" class="ltr">
+	<form class="wufoo topLabel page" method='POST' action='/compatriota/afiliar/'>
+		{% csrf_token %}
 		<input type='hidden' id='id_citizen' name='citizen'>
-		<label>D.N.I.</label>
-		{{ citizenform.number_document }}
-	</div>
-	<div>
-	<label>Grupo de votación</label>
-	{{ citizenform.number_book }}
-	</div>
-	<div>
-		<label>Ubigeo</label>
-	{{ affiliateform.ubigeo }}
-	</div>
-	<div>
-		<label>Apellido paterno</label>
-	{{ citizenform.paternal_surname }}
-	</div>
-	<div>
-	<label>Apellido Materno</label>
-	{{ citizenform.mother_surname }}
-	</div>
-	<div>
-	<label>Nombre</label>
-	{{ citizenform.name }}
-	</div>
-	<div>
-	<label>fecha de nacimiento</label>
-	{{ citizenform.birth_date }}
-	</div>
-	<div>
-		<label>Sexo</label>
-	{{ citizenform.sex }}
-	</div>
-	<div>
-	<label>grado de instrucción</label>
-	{{ citizenform.degree_instruction }}
-	</div>
-	<div>
-		<label>base</label>
-	{{ affiliateform.base }}
-	<input type='text' name='txt_base' id='txt_base'>
-	<button type='button' name='bt_base' id='bt_base'>
-		<span class="ui-button-text">Buscar</span>
-	</button>
-	</div>
-	<div>
-	<label>dirección</label>
-	{{ affiliateform.address }}
-	</div>
-	<div>
-	<label>dirección actual</label>
-	{{ affiliateform.address_home }}
-	</div>
-	<div>
-	<label>teléfono</label>
-	{{ affiliateform.phone }}
-	</div>
-	<div>
-	<label>celular</label>
-	{{ affiliateform.cellphone }}
-	</div>
-	<div>
-	<label>email</label>
-	{{ affiliateform.email }}
-	</div>
-	<div>
-	<label>declaración jurada</label>
-	{{ affiliateform.affidavit }}
-	</div>
-	<div>
-		<label>foto</label>
-	{{ affiliateform.foto }}
-	</div>
-	<div>
-	<label>tipo</label>
-	{{ affiliateform.kind }}
-	</div>
-	<div>
-		<label>estado</label>
-	{{ affiliateform.state }}
-	</div>
-	<div>
-		<label>fecha de afiliación</label>
-	{{ affiliateform.date_enrollment }}
-	</div>
-	<div><input type='submit'/></div>
-	<div id='dialog-base' title='Base'>
-		<iframe id='base_select' src='/base/compatriota/' width='450' height='850' frameborder=0 scrolling=no></iframe>
-	</div>
-</form>
+		<ul>
+			<li class="complex notranslate">
+				<label class="desc"> Ciudadano </label>
+				<div>
+					<span class="left">
+						{{ citizenform.number_document }}
+						<label>D.N.I.</label>
+					</span>
+					<span class="right">
+						{{ citizenform.number_book }}
+						<label>Grupo de votación</label>
+					</span>
+					<span class="left">
+						{{ citizenform.paternal_surname }}
+						<label>Apellido paterno</label>
+					</span>
+					<span class="right">
+						{{ citizenform.degree_instruction }}
+						<label>Grado de instrucción</label>
+					</span>
+					<span class="left">
+						{{ citizenform.mother_surname }}
+						<label>Apellido Materno</label>
+					</span>
+					<span class="right">
+						{{ citizenform.birth_date }}
+						<label>Fecha de nacimiento</label>
+					</span>
+					<span class="left">
+						{{ citizenform.name }}
+						<label>Nombre</label>
+					</span>
+					<span class="right">
+						<div>
+							<span>
+								<input type="radio" id="id_sex_0" value="M" name="sex" />
+								<label class="choice"  for="id_sex_0"> Masculino </label>
+							</span>
+							<span>
+								<input type="radio" id="id_sex_1" value="F" name="sex" />
+								<label class="choice"  for="id_sex_1"> Femenino </label>
+							</span>
+						</div>
+					</span>
+					<span class="left">
+						{{ affiliateform.foto }}
+						<label>Foto</label>
+					</span>
+					<span class="left">
+						<center><img id='pre_foto' src='' width='50px' height='80px'/></center>
+					</span>
+					<span class="full">
+						{{ affiliateform.ubigeo }}
+						<label>Ubicación</label>
+					</span>
+				</div>
+			</li>
+			<li class="complex notranslate">
+				<label class="desc"> Base </label>
+				<div>
+					<span class="left">
+						<input type='text' name='txt_base' id='txt_base'>
+						{{ affiliateform.base }}
+						<label>base</label>
+					</span>
+					<span class="right">
+						<button type='button' name='bt_base' id='bt_base'>
+							<span class="ui-button-text">Buscar</span>
+						</button>
+					</span>
+				</div>
+			</li>
+			<li class="complex notranslate">
+				<label class="desc"> Datos del afiliado </label>
+				<div>
+					<span class="full">
+						<input type='text' id="id_address" name="address" />
+						<label>Dirección</label>
+					</span>
+					<span class="full">
+						<input type='text' id="id_address_home" name="address_home" />
+						<label>Dirección actual</label>
+					</span>
+					<span class="left">
+						{{ affiliateform.phone }}
+						<label>Teléfono</label>
+					</span>
+					<span class="right">
+						{{ affiliateform.cellphone }}
+						<label>Celular</label>
+					</span>
+					<span class="left">
+						{{ affiliateform.email }}
+						<label>E-Mail</label>
+					</span>
+					<span class="right">
+						{{ affiliateform.kind }}
+						<label>Tipo</label>
+					</span>
+					<span class="left">
+						{{ affiliateform.state }}
+						<label>Estado</label>
+					</span>
+					<span class="right">
+						{{ affiliateform.date_enrollment }}
+						<label>Fecha de afiliación</label>
+					</span>
+					<span class="left">
+						{{ affiliateform.affidavit }}
+						<label>Declaración jurada</label>
+					</span>
+				</div>
+			</li>
+			<li class="buttons ">
+				<div>
+					<input id="saveForm" class="btTxt submit" type="submit" value="Afiliar" name="saveForm">
+				</div>
+			</li>
+		</ul>
+		<div id='dialog-base' title='Base'>
+			<iframe id='base_select' src='/base/compatriota/' width='450' height='850' frameborder=0 scrolling=no></iframe>
+		</div>
+	</form>
+</div>
 {% endblock %}
 {% block js %}
-{{ affiliateform.media }}
-{{ citizenform.media }}
+	{{ affiliateform.media }}
+	{{ citizenform.media }}
+	<script>
+		$(document).ready(function(){
+			$('form input[type=text]').attr('class','field text');
+			$('form input[type=checkbox]').attr('class','field checkbox');
+			$('form input[type=radio]').attr('class','field radio');
+			$('form select').attr('class','field select addr');
+			$('#id_ubigeo_0').css('width','auto');
+			$('#id_ubigeo_1').css('width','auto');
+			$('#id_ubigeo_2').css('width','auto');
+			$('#id_birth_date_day').css('width','auto');
+			$('#id_birth_date_month').css('width','auto');
+			$('#id_birth_date_year').css('width','auto');
+			$('#id_date_enrollment_day').css('width','auto');
+			$('#id_date_enrollment_month').css('width','auto');
+			$('#id_date_enrollment_year').css('width','auto');
+			});
+	</script>
 {% endblock %}

@@ -1,88 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
 <section class="accordbk">
-<article class="horizontalaccordion">
-<center><h2>Bienvenidos a Waxyay</h2></center>
-<h3>El Sistema Integrado de información del Partido Nacionalista Peruano</h3>
-<ul>
-<li>
-<h3>¿Qué es Waxyay?</h3>
-
-<div><img src="{{ STATIC_URL  }}images/logo.jpg" alt="" /><p><b><font color="red">¿Qué es Waxyay?</font></b></p>
-<font color="black"><p align="justify"> WAXYAY es una herramienta que proporciona información pertinente y oportuna a los dirigentes y militares de la organización para el desarrollo
-de sus labores políticas. Con este Sistema interactivo usted podrá operar un conjunto de datos de acuerdo al tipo de acceso que tiene, relacionados con los ciudadanos que son afiliados a la
-organización, así como también realizar los siguientes procesos: </p>
-
-<p>Carnetizacion</p>
-<p>Afiliación</p>
-<p>Inscripción de personas</p>
-<p>Reportes tales como: Cantidad de afiliados, cantidad de personas.</p>
-<p></p>
-
-<pre><font face="Arial">              El sistema nacionalista estará mas unido que nunca,
-y no se olviden
-estamos trabajando por el cambio...!!!!</font></pre>
-<p>Le agradeceremos nos haga llegar sus sugerencias para seguir corrigiendo y mejorando el sistema.</p></font>
-</div>
-</li>
-<li>
-<h3>Acceso</h3>
-<div><p><b>¿Quiénes tienen acceso a Waxyay?</b></p>
-<p>Compatriotas afiliados al partido, se les asignara un usuario y una contraseña.</p>
-"<img src="{{ STATIC_URL  }}images/usala.jpeg" alt="" />
-</div>
-</li>
-<li>
-<h3>Visión y misión</h3>
-<div><img src="{{ STATIC_URL  }}images/usala2.gif" alt="" /><p><b>¿Cuál es la misión de waxyay?</b></p>
-<p>pronto</p>
-</div>
-</li>
-<li>
-<h3>Autores</h3>
-<div><img src="{{ STATIC_URL  }}images/oni.png" alt="" /><p><b>¿Quiénes la desarrollaron?</b></p>
-<p align="justify">Waxyay fue desarrollado por la Oficina Nacional De Informática(ONI) del Partido Nacionalista Peruano bajo la supervisión de Ronald Barrientos, los desarrolladores son(De izquierda a derecha):</p>
-<p>Herald Mathías Olivares Sabrosa</p>
-<p>Leonardo Aquino (Leo aki)</p>
-<p>Miguel Ángel (Micky miseck) Cumpa </p>
-<p>Waxyay esta desarrollado en Python con el framework django y con base de datos PostgreSql</p>
-</div>
-</li>
-</ul>
-</article>
+	<article class="horizontalaccordion">
+		<center><h2>Bienvenidos a Waxyay</h2></center>
+		<h3>El Sistema Integrado de información del Partido Nacionalista Peruano</h3>
+		<ul>
+			<li>
+				<h3>¿Qué es Waxyay?</h3>
+				<div>
+					<img src="{{ STATIC_URL  }}images/logo.jpg" alt="" />
+					<p>
+						<b><font color="red">¿Qué es Waxyay?</font></b>
+					</p>
+						<font color="black">
+							<p align="justify">
+								WAXYAY es una herramienta que proporciona información pertinente y oportuna a los dirigentes y militares de la organización para el desarrollo de sus labores políticas. Con este Sistema interactivo usted podrá operar un conjunto de datos de acuerdo al tipo de acceso que tiene, relacionados con los ciudadanos que son afiliados a la organización, así como también realizar los siguientes procesos:
+							</p>
+							<ul>
+								<li>Carnetizacion</li>
+								<li>Afiliación</li>
+								<li>Inscripción de personas</li>
+								<li>Reportes tales como: Cantidad de afiliados, cantidad de personas</li>
+							</ul>
+							<p>Le agradeceremos nos haga llegar sus sugerencias para seguir corrigiendo y mejorando el sistema.</p>
+						</font>
+				</div>
+			</li>
+			<li>
+				<h3>Autores</h3>
+				<div>
+					<p><b>¿Quiénes la desarrollaron?</b></p>
+					<p align="justify">Waxyay fue desarrollado por la Oficina Nacional De Informática(ONI) del Partido Nacionalista Peruano bajo la supervisión de <b>Ronald Barrientos</b>, los desarrolladores son:</p>
+					<ul>
+						<li>Miguel Ángel Cumpa Ascuña - Micky Miseck</li>
+						<li>Herald Mathías Olivares Zarsoza</li>
+						<li>Leonardo Aquino - Leo Aki</li>
+					</ul>
+				<p>Waxyay esta desarrollado en Python con el framework django y con base de datos PostgreSql</p>
+				</div>
+			</li>
+		</ul>
+	</article>
 </section>
-
-<article>
-<table>
-<tr>
-<td> 			
-<div>
-<h2><a href="#">Compatriota ahora ya lo sabe!!</a></h2>
-<p>El sistema nacionalista estará mas unido que nunca,estamos trabajando por el cambio...!!!!</font></p>
-<p>Le agradeceremos nos haga llegar sus sugerencias para seguir corrigiendo y mejorando el sistema.</p></font>
-</div>
-</td>
-
-<td>
-<div="loginBox" >
-
-<h2>Login</h2>
-
-<form id="loginForm" method='POST' action='#'>
-<fieldset id="body" color="red">
-
-<h4>Usuario</h4>
-<input type="text" class='required' name="usuario" id="usuario" />
-
-<h4>Password</h4>
-<input type="password" class='required' name="password" id="password" />
-
-<input type="submit" id="login" value="Sign in" />
-</fieldset>
-</form>
-</div>
-</td>
-</tr>
-</table>
-</article>
 {% endblock %}
